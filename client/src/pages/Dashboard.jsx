@@ -3,6 +3,7 @@ import { FiLogOut, FiTrash2, FiCheckCircle, FiCircle } from "react-icons/fi";
 import { usetAuth } from '../context/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_URL from '../services/api';
 
 const Dashboard = () => {
   const { token, logout, user } = usetAuth();
@@ -31,7 +32,7 @@ const Dashboard = () => {
     setLoading(true);
     try {
 
-      const res = await axios.get('http://localhost:8000/api/tasks', {
+      const res = await axios.get(`${API_URL}/api/tasks`, {
         headers: { Authorization: token }
       })
       setTasks(res.data.tasks)
@@ -47,7 +48,7 @@ const Dashboard = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("https://full-stact-task-manager-app.onrender.com", { title, description }, {
+      await axios.post(`${API_URL}/api/tasks`, { title, description }, {
         headers: { Authorization: token }
       });
       setTitle("");
@@ -64,7 +65,7 @@ const Dashboard = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.put(`https://full-stact-task-manager-app.onrender.com/${id}`, {
+      await axios.put(`${API_URL}/api/tasks/${id}`, {
         title: editTitle,
         description: editDescription
       }, {
@@ -83,7 +84,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://full-stact-task-manager-app.onrender.com/${id}`, {
+      await axios.delete(`${API_URL}/api/tasks/${id}`, {
         headers: { Authorization: token }
       });
       fetchTasks();
@@ -96,7 +97,7 @@ const Dashboard = () => {
 
   const handleToggle = async (task) => {
     try {
-      await axios.put(`https://full-stact-task-manager-app.onrender.com/${task._id}`, {
+      await axios.put(`${API_URL}/api/tasks/${task._id}`, {
         completed: !task.completed
       }, {
         headers: { Authorization: token }

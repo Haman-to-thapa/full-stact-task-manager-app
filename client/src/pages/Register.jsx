@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { usetAuth } from '../context/AuthContext';
+import API_URL from '../services/api';
 
 const Register = () => {
   const [fullName, setFullName] = useState("");
@@ -15,7 +16,7 @@ const Register = () => {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post('https://full-stact-task-manager-app.onrender.com/register', {
+      const res = await axios.post(`${API_URL}/api/auth/register`, {
         fullName,
         email,
         password
