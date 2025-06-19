@@ -9,7 +9,7 @@ dotenv.config()
 const PORT = process.env.PORT || 5000;
 
 const app = express()
-const allowedOrigins = ['http://localhost:5173', 'https://your-production-frontend.com'];
+const allowedOrigins = ['http://localhost:5173', 'https://full-stact-task-manager-app-1.onrender.com'];
 
 
 app.use(cors({
