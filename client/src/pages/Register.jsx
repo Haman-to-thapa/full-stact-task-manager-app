@@ -25,7 +25,7 @@ const Register = () => {
       navigate("/dashboard");
 
     } catch (error) {
-      setError(err.response?.data?.message || "Registration failed");
+      setError(error.response?.data?.message || "Registration failed");
     }
   }
 
