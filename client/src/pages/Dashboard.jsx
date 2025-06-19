@@ -23,7 +23,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate("/login");
+      navigate("/register");
     }
   }, [user, navigate]);
 
