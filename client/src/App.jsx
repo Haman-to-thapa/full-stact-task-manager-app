@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import { AuthProvider } from './context/AuthContext'
+import ProtectedRoute from './pages/Protect'
 
 const App = () => {
   return (
@@ -14,7 +15,9 @@ const App = () => {
           <Route path='/' element={<LandingPage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/dashboard' element={<ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>} />
         </Routes>
       </Router>
     </AuthProvider>
