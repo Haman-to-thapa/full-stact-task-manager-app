@@ -15,7 +15,7 @@ const Register = () => {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post('http://localhost:8000/api/auth/register', {
+      const res = await axios.post('https://full-stact-task-manager-app.onrender.com/register', {
         fullName,
         email,
         password

@@ -47,7 +47,7 @@ const Dashboard = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post("http://localhost:8000/api/tasks", { title, description }, {
+      await axios.post("https://full-stact-task-manager-app.onrender.com", { title, description }, {
         headers: { Authorization: token }
       });
       setTitle("");
@@ -64,7 +64,7 @@ const Dashboard = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.put(`http://localhost:8000/api/tasks/${id}`, {
+      await axios.put(`https://full-stact-task-manager-app.onrender.com/${id}`, {
         title: editTitle,
         description: editDescription
       }, {
@@ -83,7 +83,7 @@ const Dashboard = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/tasks/${id}`, {
+      await axios.delete(`https://full-stact-task-manager-app.onrender.com/${id}`, {
         headers: { Authorization: token }
       });
       fetchTasks();
@@ -96,7 +96,7 @@ const Dashboard = () => {
 
   const handleToggle = async (task) => {
     try {
-      await axios.put(`http://localhost:8000/api/tasks/${task._id}`, {
+      await axios.put(`https://full-stact-task-manager-app.onrender.com/${task._id}`, {
         completed: !task.completed
       }, {
         headers: { Authorization: token }
